@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sea Forest</title>
+<style type="text/css">
+ /*프리텐다드 임포트*/
+      @font-face {
+        font-family: 'Pretendard-Black';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');
+        font-weight: 900;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Pretendard-ExtraBold';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+        font-weight: 800;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Pretendard-Bold';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+        font-weight: 700;
+        font-style: normal;
+
+      }
+       @font-face {
+        font-family: 'Pretendard-SemiBold';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+        font-weight: 600;
+        font-style: normal;
+        
+      }
+      @font-face {
+        font-family: 'Pretendard-Medium';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Pretendard-Thin';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
+        font-weight: 100;
+        font-style: normal;
+      }
+        
+      header { padding-bottom: 0vw; position: relative; }
+      footer { padding-top: 10px; padding-bottom: 100px; }
+      section { padding-top: 0px; padding-bottom: 0px;}
+
+      html { font-family: "Pretendard-Medium"; font-size: 0.8rem; line-height: 1.5; word-break: keep-all; }
+      body, h1, h2, h3,h4,h5,h6,h8, p, ul, header, block { margin: 0; padding: 0; }
+      p { font-size: 1.7rem; }
+      h6 { font-size: 1.7rem; font-family: 'Pretendard-SemiBold'; }
+      h2 { font-size: 5rem; font-family: 'Pretendard-ExtraBold'; }
+       h1 { font-size: 7rem; font-family: 'Pretendard-ExtraBold'; }
+      h4 { font-size: 3.5rem; font-family: 'Pretendard-ExtraBold'; }
+      h5 { 
+  font-size:2.5rem; 
+  font-family: 'Pretendard-Bold'; 
+}
+ h8 { font-size: 1.3rem; font-family: 'Pretendard-SemiBold'; }
+
+       word-break: keep-all;
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: black;
+      color: greenyellow;
+      z-index: 2; /* 다른 요소들보다 위에 위치하도록 설정합니다. */
+    }
+
+    nav {color: #001AFF; position: fixed; width: 100%; top: 0; z-index: 1000; height: 50px; }
+      .wrap { width: 1200px; margin: auto; position: relative;}
+      .flex { display: flex; justify-content: space-between; }
+      .menu { width: 500px; }
+      .menu li { list-style-type: none; }
+      .menu li a { display: block; padding: 15px 20px; text-decoration: none; color: white; mix-blend-mode: difference;}
+      .menu li a:hover { background: #001AFF; color: white; border-radius: 40px;}
+      .logo { line-height: 58px; }
+      .full { width: 100%; height: -100vw; display: block; object-fit: cover; }
+
+
+     video { width: 100%; height: 100vh; margin: 0; padding: 0; object-fit: cover; }
+     .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background: rgb(0,26,255);
+background: linear-gradient(0deg, rgba(0,26,255,1) 0%, rgba(217,217,217,0) 60%);
+     }
+
+     #Ourstory {
+      margin-top: 0; /* 초기에는 header 아래로 위치합니다. */
+      position: relative; /* 상대 위치 지정 */
+      z-index: 1; /* 다른 요소보다 앞에 위치하도록 설정합니다. */
+      transition: margin-top 0.5s ease; /* 부드러운 전환을 추가합니다. */
+    }
+
+
+    .fade{animation: fadein 1s linear forwards;position: relative;}
+
+ @keyframes fadein
+{from {top:300px; opacity: 0}
+to{top:0px; opacity:1}
+}
+
+  .fadein{animation: fadein 0.7s linear forwards;position: relative;}
+
+ @keyframes fadein
+{from {top:100px; opacity: 0}
+to{top:0px; opacity:1}
+}
+
+
+}
+.wrap1{width: 800px; margin: auto;}
+        .flex{display: flex; gap: 5%}
+        .flexitem{width: 30%;}
+
+ .container {
+            display: flex;
+            width: 100vw;
+            height: 90vh;
+            overflow: hidden;
+        }
+        .text-box {
+            padding: 20px;
+            width: 50%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+        .image-box {
+              position: relative; /* 추가 */
+            width: 50%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px; /* 이미지 간격 조절 */
+    width: 1200px;
+    margin: 0 auto; /* 가운데 정렬 */
+
+  }
+
+  .image-grid img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* 이미지 중앙 정렬 */
+  }
+
+  .image-container {
+    display: flex;
+    animation: scrollImages 40s linear infinite;
+    gap: 50px;
+  }
+
+  @keyframes scrollImages {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-2000px); /* 이미지들이 움직이는 거리 */
+    }
+  }
+.background-section {
+  padding-top: 0;
+  
+  width: 100vw;
+  height: 50vw;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+.content-container {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  background-color:#041DFF; /* 배경색 및 투명도 조절 */
+  padding: 20px;
+  border-radius: 20px; /* 모서리를 둥글게 만듭니다 (선택사항) */
+  color: white;
+  
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+   /* 중앙 정렬 (필요에 따라 조정 가능) */
+  justify-content: center;
+  padding: 20px;
+}
+
+.right-column {
+  padding: 0px;
+}
+
+.content-container h5 {
+  margin: 0;
+}
+
+.content-container p {
+  margin: 00 0 0; /* 위쪽 여백 설정 */
+}
+
+.content-container .warning {
+    text-decoration: underline;
+  font-size:font-size: 1.7rem;
+
+}
+       .flip-container {
+            width: 34vw;
+            height: 34vw;
+            perspective: 1000px;
+            
+        }
+
+        .flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-container:hover .flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-side {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flip-side img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+.countNum {
+    font-family: 'Pretendard-bold', sans-serif;
+    font-size: 25rem;
+    color: white;
+}
+
+.bounce{animation: bounce 1s infinite; 2s linear forwards;position: relative;}
+@keyframes bounce 
+{from {top:30px; opacity: 1}
+to{top:0px; opacity:1}
+}
+
+.narrow-spacing {
+    letter-spacing: -0.5rem; /* 필요에 따라 이 값을 조정하세요 */
+}
+
+
+
+</style>
+<title>Sea Forest</title>
+</head>
+<body style="overflow-x: hidden;">
+  <nav>
+    
+      <ul class="menu flex" style="magin:0;position: absolute;left: 100px; ">
+        <li><a href="#home">home</a></li>
+        <li><a href="#Ourstory">Our&nbsp;story</a></li>
+        <li><a href="#Coralbleaching">Coral bleaching</a></li>
+        <li><a href="#Solution">Solution</a></li>
+      </ul>
+    </div>
+  </nav>
+  <header id="home">
+        <video src="wave.mp4" autoplay muted loop class="full" style=""></video>
+        <div class="overlay"></div>
+        <img src="logo.svg" style="position: absolute; top: 80%; left: 50%; transform: translate(-50%, -50%); z-index: 1; background-attachment: fixed;size: 100%;">
+     
+  </header>
+
+<section id="Ourstory" style="position: relative; top: -10px; margin-bottom: -100px;">
+    <div style="position: relative; width: 100%;">
+        <img style="width: 100%" src="Group 26.svg">
+        <div style="position: absolute; top: 40%; left: 50%; transform: translateX(-50%); width: 100%;">
+            <p style="position: relative; text-align: center; color: white;">
+                바다의 꽃, 산호초에 대해 얼마나 알고 계시나요? <br>
+                알고보면 우리에게 영향을 많이 끼치는 산호초에 대해 알아볼까요?
+            <p>
+            <img src="Coral.svg" style="position: absolute; top:90px; left: 50%; transform: translateX(-50%);">
+        </div>
+    </div>
+</section>
+<section style="background: black; margin-top: -100px;">
+<div style="
+        padding-top: 300px;
+        padding-bottom: 400px;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        justify-items: center;
+        gap:-50px;
+        max-width: 1000px;
+        margin: auto;
+        text-align: center; /* 가운데 정렬 추가 */
+        position: relative; left: -5vw;
+        animation: scrollImages 40s linear infinite;  position: relative; 
+    ">
+     <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 18.svg" alt="Front Image 1">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="18.svg" alt="Back Image 1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 19.svg" alt="Front Image 2">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="19.svg" alt="Back Image 2">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 20.svg" alt="Front Image 3">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="20.svg" alt="Back Image 3">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 21.svg" alt="Front Image 4">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="21.svg" alt="Back Image 4">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 18.svg" alt="Front Image 1">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="18.svg" alt="Back Image 1">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 19.svg" alt="Front Image 2">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="19.svg" alt="Back Image 2">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 20.svg" alt="Front Image 3">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="20.svg" alt="Back Image 3">
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flip-inner">
+                    <div class="flip-side front">
+                        <img src="Group 21.svg" alt="Front Image 4">
+                    </div>
+                    <div class="flip-side back">
+                        <img src="21.svg" alt="Back Image 4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section style="position: relative; top: -130px;" >
+    <div style="position: relative; width: 100%;">
+        <img style="width: 100%;" src="Union.svg" >
+
+        <div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 80%; display: grid; grid-template-columns: 7fr 3fr; gap: 20px; align-items: start;">
+            <div style="position: relative;">
+                <h5 style="padding-bottom: 20px; color: white; position: relative; z-index: 2;">이처럼 우리에게 이로운 산호초들이 <br>최근 10년 사이에,</h5>
+                <div class="s5p" style="position: relative; text-decoration: underline; color: white; z-index: 2;">
+                    <h1 style="color: white; position: relative; top: 30px;"> 서울의 <span class="countNum">0</span> 배</h1>
+                </div>
+                <div style="background-image: url('Group 60.svg'); background-size: contain; background-repeat: no-repeat; background-position: bottom left; position: absolute; top: 140px; width: 100%; height: 50%; z-index: 1;"></div>
+                <h1 style="position: relative; top: -20px; color: white; z-index: 2;">가까이 사라졌습니다.</h1>
+            </div>
+            <div style="display: flex; position: relative; left: -5vw;">
+                <img src="Group 59.svg" style="width: 130%; height: auto;">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section> 
+	<h2 style="color:#041DFF; text-align: center;" >그동안 산호초들에게<br>무슨 일이 벌어진 걸까요?</h2></section>
+
+<section style="background: black; position: relative; top: 100px;">
+    <div class="container">
+        <div class="text-box" style="background-color: #FCCDFB;">
+            <h5 style="text-decoration:underline;">지구온난화로 높아진 바다 온도 때문에<br> 산호초가 멸종 위기예요!</h5>
+            <p style="padding-top:100px">바닷물 온도가 30°C를 넘으면 산호초가 살기 힘들어집니다. 식물플랑크톤과 해조류도 감소하고, 양식 어류가 집단 폐사하는 등 해양 생태계가 교란되기 쉽죠. 현재 바닷물 온도가 올라가서 산호들이 스트레스를 받고, 산호 속에 살던 갈충조류가 산호를 떠나게 되고 그 때문에 산호의 색깔이 하얗게 변하게 됩니다.</p>
+        </div>
+        <div class="image-box">
+            <img src="Group 36.png" alt="얼음 사진">
+        </div>
+    </div>
+</div>
+<div  class="image-grid" style="position: relative;top:100px; text-align: center;">
+  <div >
+        <div class="wow bounce">
+    <img src="Group 37.svg" alt="Group 37">
+    <img src="Polygon 1.svg" alt="Polygon 1" style="padding-top:20px; padding-bottom: 20px;"></div>
+    <img src="OBJECTS.svg" alt="OBJECTS">
+    <p style="color: white;padding-top: 50px;text-decoration: underline;"> 건강한 산호</p>
+    <p style="color: white;padding-top: 20px;">산호와 해조류는 생존을<br> 위해 서로에게 의존합니다.</p>
+  </div>
+  <div>
+        <div class="wow bounce">
+    <img src="Group 38.svg" alt="Group 38" >
+    <img src="Polygon 1.svg" alt="Polygon 1"style="padding-top:20px;padding-bottom: 20px;"></div>
+    <img src="OBJECTS1.svg" alt="OBJECTS1">
+    <p style="color: white;padding-top: 50px;text-decoration: underline;"> 스트레스 받은 산호</p>
+     <p style="color: white;padding-top: 20px;"> 산호가 고열 때문에 스트레스를<br> 받으면 조류가 산호를 떠나고,</p>
+  </div>
+  <div style="padding-bottom: 200px;">
+    <div class="wow bounce">
+    <img src="Group 39.svg" alt="Group 39">
+    <img src="Polygon 1.svg" alt="Polygon 1" style="padding-top:20px;padding-bottom: 20px;"></div>
+    <img src="OBJECTS2.svg" alt="OBJECTS2">
+    <p style="color: white;padding-top: 50px;text-decoration: underline;"> 표백된 산호</p>
+    <p style="color: white;padding-top: 20px;"> 산호는 표백되고 부서지기<br> 쉬운 상태로 남습니다.</p>
+  </div>
+</div></section>
+<section style="background-image:url(ther.svg);padding-top: 200px;background-attachment: fixed;">
+<img src="Rectangle 118.png" style="z-index: 1; position: relative; top:150px; left:50vw;">
+<div style="z-index: 1; position: relative; top:-250px; left:55vw;">
+            <h5 style="text-decoration:underline;">산성화된 바다에서는 탄산칼슘을 얻기<br> 어려워 산호가 죽게 돼요. </h5>
+            <p style="padding-top: 30px;">
+                바닷물이 산성화될수록 산호는 탄산칼슘으로 이루어진<br> 경우가 많기 때문에 표면이 녹아버려 하얗게 변하기도 한답니다.<br> 더불어 산호는 성장함에 따라 탄산칼슘은 꼭 필요해요.<br> 바다가 산성화가 되면 탄산칼슘을 얻기 어려워지니 산호의 성장이  <br>엄청 더뎌지고,하얗게 변한뒤에 죽게 된답니다. 
+            </p>
+        </div>
+</section>
+<section style=" background: #041DFF">
+  <div class="image-container">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+    <img src="Coral.png">
+  </div>
+</section>
+
+    <div style="background-color: black; padding: padding-bottom:60px">
+    <section id="Coralbleaching" style="text-align: center; padding-top: 100px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; background-color: white; padding-bottom: 50px;">
+        <p style="color: #041DFF">coral bleaching</p>
+        <h2 style="color: #041DFF;">산호초 백화 현상</h2>
+        <img src="Group 40.svg" style="padding-top: 50px; width: 70vw;">
+    </section>
+</div>
+
+<section style="background: black;">
+    <div style="padding-top: 250px; padding-bottom: 250px; display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <div class="wow fade"style="width: 32.6%; margin: 10px 0;">
+            <img src="1.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">18° 17′ 10″ S
+147° 41′ 60″ E <br> 그레이트 베리어 리프</p>
+        </div>
+        <div class="wow fade"style="width: 33%; margin: 10px 0;">
+            <img src="2.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">24° 33′ 33″ N,  81° 47′ 03″W<br> 미국 플로리다 카리브해</p>
+        </div>
+        <div class="wow fade"style="width: 33%; margin: 10px 0;">
+            <img src="3.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">   8° 0′ 0″ N, 80° 24′ 0″ W <br> 파나마섬</p>
+        </div>
+        <div class="wow fade"style="width:32.6%; margin: 10px 0;">
+            <img src="4.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">24° 33′ 33″ N,  81° 47′ 03″W<br> 미국 플로리다 카리브해</p>
+        </div>
+        <div class="wow fade"style="width: 33%; margin: 10px 0;">
+            <img src="5.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">3° 15′ 0″ N, 73° 0′ 0″ E <br> 몰디브</p>
+        </div>
+        <div class="wow fade"style="width: 33%; margin: 10px 0;">
+            <img src="6.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">8° 17′ 10″ S
+147° 41′ 60″ E <br> 그레이트 베리어 리프</p>
+        </div>
+        <div class="wow fade"style="width: 32.8%; margin: 10px 0;">
+            <img src="7.png" style="width: 100%;">
+            <p style="color: white; text-align: center;"> 15˚ 30˝S 176˚ 30′ W <br> 피지</p>
+        </div>
+        <div class="wow fade"style="width: 33%; margin: 10px 0;">
+            <img src="8.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">18° 17′ 10″ S
+147° 41′ 60″ E <br> 그레이트 베리어 리프</p>
+        </div>
+        <div class="wow fade"style="width: 33%; margin: 10px 0;">
+            <img src="9.png" style="width: 100%;">
+            <p style="color: white; text-align: center;">8° 0′ 0″ N, 80° 24′ 0″ W <br> 파나마섬</p>
+        </div>
+    </div>
+</section>
+
+<section id="Solution"style="position: relative; top: -50px; padding-bottom: 100px; background:white; border-top-left-radius: 50px; border-top-right-radius: 50px; margin: 0; ">
+    <h2 style="text-align: center;color:#041DFF;padding-bottom: 100px;padding-top: 100px;"> 산호초 백화 현상을 늦추려면<br> 어떤 방법이 있을까요? </h2>
+    <div class="container">
+         <div class="image-box">
+            <img src="Group 46.gif" alt="Group 46" id="hoverImage">
+       
+        </div>
+        <div class="text-box" style="background-color: #82E1FF; ">
+            <h5 style="text-decoration:underline;">건강한 산호초 소리 틀어주기</h5>
+            <p style="padding-top:30px">미국 우즈홀 해양생물학연구소가 건강한 산호 소리를 녹음한 뒤 수중 스피커를 통해 산호 유충의 정착을 돕는 실험을 진행했습니다.산호초 군락지 세 곳에 정착한 유충을 모을 수 있는 컵을 설치한 뒤, 한 곳에만 수중 스피커를 설치해 건강한 산호의 소리를 들려줬습니다.그 결과, 수중 스피커를 설치한 곳에서 정착한 산호 유충이 다른 두 곳보다 평균 2배 가까이, 최대 7배 더 많았습니다.</p>
+    
+
+</div></div></section>
+
+<section style="background-color:#00D3A1; padding-bottom: 200px;position: relative;top:-150px">
+    <h5 style="padding-left: 100px; padding-top:150px;padding-bottom:30px;text-decoration:underline;">산호초 건강 확인 AI</h5>
+    <div class="column-container" style="display: flex; flex-wrap: wrap;">
+        <div class="column" style="flex: 1; margin-right: 10px;padding-left: 100px">
+            <p>지난해 글로벌 기업 인텔과 필리핀 술루바이 환경재단은 산호초 복원력을 관찰·식별·분석하는 인공지능(AI) 플랫폼 ‘코레일 프로젝트(Project CORaiL)’를 진행했어요.</p>
+        </div>
+        <div class="column" style="flex: 1; margin-left: 10px;padding-left: 100px; padding-right: 100px;">
+            <p>필리핀 판가탈란 섬을 둘러싼 산호초 정보를 수집하기 위해 시작된 프로젝트로, 약 4만 장의 사진을 수집해 연구진이 실시간으로 산호초 건강 상태를 측정할 수 있도록 지원했습니다. 이런 문제점을 극복하고 산호초 생태를 안정적으로 관찰할 수 있도록 응용 지능형 비디오 분석 서비스 플랫폼(VASP)을 탑재한 지능형 수중 비디오 카메라가 곳곳에 배치되어 산호초를 관리 중입니다.</p>
+        </div>
+    </div>
+   <iframe width="1500vw" height="800vw" src="https://www.youtube.com/embed/9nz4_lzjIBM?si=PTFlZvmXnkUl-DMr&amp;start=60&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="padding-top: 100px; padding-left: 100px;"></iframe>
+
+  <p style="padding-top: 30px; text-align: center;">
+    <span style="background: greenyellow; display: inline-block;"> vr 영상으로, 자유롭게 영상을 움직여 산호초들을 현재 모습을 관찰해요.</span>
+</p>
+
+</section>
+
+
+    <section style="position: relative; top: -50px; padding-bottom: 100px; background:white; border-top-left-radius: 50px; border-top-right-radius: 50px;">
+    <h2 style="text-align: center; color:#041DFF;padding-top: 100px;">
+        개인이 할 수 있는 산호초 보호에는 <br>어떤 게 있을까요?
+    </h2>
+</section>
+
+
+<section class="background-section" style="background-image: url('giphy 3.gif');background-attachment: fixed; padding-top: 200px">
+  <div class="content-container wow fadein">
+    <div class="left-column">
+      <h5 >다이빙 할 때는 <br> 산호초 터치 X 선크림 X
+      <img src="Under the sea.png" alt="Under the Sea" style="position:relative; top: 20px; left: -10px"></h5>
+    </div>
+    <div class="right-column">
+      <p style="padding-top: 60px">산호초는 매우 민감한 생태계이며, 만지거나 밟으면 손상될 수 있습니다. 산호초들이 스트레스를 받지 않도록 만지지 말아주세요!
+      또한 선크림 제품은 해양 생태계에 해로운 화학물질을 포함하고 있습니다. 이러한 화학물질이 바다로 유출되면 산호초와 다른 해양 생물들에게 해를 끼칠 수 있습니다. 그러므로 스킨스쿠버 다이빙이나 해변에서 활동할 때는 해양 친화적인 선크림을 사용하거나 가능하면 선크림을 사용하지 않는 것이 좋습니다.</p>
+      <p class="warning" style="padding-top: 50px">바다에 들어갈 때 조심해야하는 성분<p><p class="warning" style="padding-top:10px">-옥시벤존(벤조페논-3)<br>-옥티노세이트(에칠헥실메톡시신나메이트)</p>
+      <img src="Oxybenzone.png" style="width: 50%;position: relative; top: -70px; left: 350px;">
+    </div>
+  </div>
+</section>
+
+<section style="background-image: url('giphy 3.gif');background-attachment: fixed; padding-top: -100px; padding-bottom: 300px;display: flex;
+  align-items: center;
+  justify-content: center;
+  ">
+  <div class="content-container wow fadein">
+    <div class="left-column">
+    <h5 style="adding-top: 60px">바다에 숲을 <br> 만들어요!</h5>
+    <img src="Group 47.png" style="width: 80%">
+</div>
+<div class="right-column">
+    <p style="padding-top: 30px">5월 10일이 무슨 날인지 아시나요? 아마 고개를 갸우뚱하는 분들이 많을 텐데요, 바로 바다식목일입니다. 해양수산부는 바닷속 생태계의 중요성을 널리 알리고, 황폐해져 가는 바다숲을 보호하기 위해 2013년부터 5월 10일을 ‘바다식목일’로 제정하여 기념하고 있습니다. <br>바닷속 해조류는 매년 9만 톤에 가까운 이산화탄소를 흡수하며 지구를 지키는 데 도움을 주고 있다는 것을 알리고 더 많은 바다숲 조성을 독려하고자 시작된 것이죠. 산호 뿐만아니라 미역 등 해조류를 심는 것이 산호초에게 큰 도움이 됩니다. </p>
+  </div>
+</section>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+<script src="wow.js"></script>
+
+<script>
+    new WOW().init();
+// 페이지가 로드될 때마다 스크롤을 페이지의 최상단으로 이동
+        window.onload = function() {
+            window.scrollTo(0, 0);
+        };
+
+        // 네비게이션 링크를 클릭할 때 부드러운 스크롤 효과를 추가
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+const counter = ($counter, max) => {
+    let now = max;
+
+    const handle = setInterval(() => {
+        const currentCount = Math.ceil(max - now);
+        $counter.innerHTML = currentCount;
+
+        if (currentCount === 20) {
+            $counter.classList.add('narrow-spacing');
+        } else {
+            $counter.classList.remove('narrow-spacing');
+        }
+
+        if (now < 1) {
+            clearInterval(handle);
+        }
+
+        const step = now / 10;
+        now -= step;
+    }, 50);
+};
+
+
+   window.onload = () => {
+    const $counter = document.querySelector(".countNum");
+    const max = 20;
+
+    const startCounter = () => {
+        counter($counter, max);
+    };
+
+    // 3초마다 카운터 시작
+    setInterval(startCounter, 3000);
+
+    // Hover sound
+    const hoverImage = document.getElementById('hoverImage');
+    const audio = new Audio('sound.mp3');
+    audio.preload = 'auto'; // 오디오 미리 로드
+
+    hoverImage.addEventListener('mouseover', () => {
+        audio.currentTime = 0; // 소리 재생 위치를 처음으로 설정
+        audio.play();
+    });
+};
+
+
+
+</script>
+
+<footer style="background:#041DFF; color: white; font-family:'Pretendard-regular'; padding-top:50px; padding-left:12vw; padding-right: 12vw; padding-bottom: 200px;">
+    <img src="Vector.png" style="position: relative; top: -100px;left:-12vw;">
+    <div style="display: flex; justify-content: space-between;">
+        <!-- 첫 번째 열 -->
+        <div style="line-height: 1.5;">
+    <h8 style="color:#D6FF4B; font-size:1rem;"> Email us</h8><br>
+    ahnsieon@g.seoultech.ac.kr
+    <br><br><br>
+    <h8 style="color:#D6FF4B; font-size:1rem;"> Social</h8><br>
+    <a href="https://www.instagram.com/_0sie0n_studio/" target="_new"style="color: white; text-decoration:none;">instagram</a> <br>
+    <a href="https://www.behance.net/AhnSieon" target="_new" style="color: white; text-decoration:none; "> behance </a><br><br><br>
+   
+</div>
+
+<!-- 두 번째 열 -->
+<div style="display: flex; flex-direction: column;"> <!-- index부터 옆으로 배치할 부모 요소 -->
+    <div style="line-height: 2;"> <!-- 여기에 line-height 추가 -->
+        <h8 style="color:#D6FF4B; font-size:1rem;"> Index</h8><br>
+        <!-- Home에 id 추가 -->
+    <a href="#home" style="text-decoration: none; color: white;font-size:1.4rem;font-family:'Pretendard-medium'">Home</a><br>
+<a href="#Ourstory" style="text-decoration: none; color: white;font-size:1.4rem;font-family:'Pretendard-medium'">Our story</a><br>
+<a href="#Coralbleaching" style="text-decoration: none; color: white;font-size:1.4rem;font-family:'Pretendard-medium'">Coralbleaching</a><br>
+<a href="#Solution" style="text-decoration: none; color: white;font-size:1.4rem;font-family:'Pretendard-medium'">Solution</a><br>
+
+    </div>
+</div>
+
+
+<!-- 세 번째 열(이미지) -->
+<div>
+    <img src="logo.png" alt="logo" style="width: 500px; height: auto;">
+</div>
+</div>
+
+<div style="position: relative; top: 100px; color: white;">
+    ©2024 ALL COPYRIGHTS RESERVED BY Sieon 
+    <div style="text-align: right;">
+        PRIVACY POLICY | COOKIE POLICY | COOKIE SETTINGS
+    </div>
+</div>
+
+</div>
+
+    </div>
+</footer>
+
+</body>
+</html>
+
